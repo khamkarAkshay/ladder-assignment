@@ -1,4 +1,4 @@
-function validate(p1Age, p1Position, p2Age, p2Position) {
+function validateAge(p1Age, p2Age) {
   if (p1Age === null || p1Age === undefined)
     return { error: true, message: "Player 1 age cannot be empty" };
 
@@ -14,6 +14,16 @@ function validate(p1Age, p1Position, p2Age, p2Position) {
   if (p1Age === p2Age)
     return { error: true, message: "Player 1 and Player 2 age cannot be same" };
 
+  if (isNaN(p1Age))
+    return { error: true, message: "Player 1 age should be number" };
+
+  if (isNaN(p2Age))
+    return { error: true, message: "Player 2 age should be number" };
+
+  return { error: false, message: "" };
+}
+
+function validatePosition(p1Position, p2Position) {
   if (p1Position === null || p1Position === undefined)
     return { error: true, message: "Player 1 position cannot be empty" };
 
@@ -31,13 +41,6 @@ function validate(p1Age, p1Position, p2Age, p2Position) {
       error: true,
       message: "Player 1 and Player 2 position cannot be same",
     };
-
-  if (isNaN(p1Age))
-    return { error: true, message: "Player 1 age should be number" };
-
-  if (isNaN(p2Age))
-    return { error: true, message: "Player 2 age should be number" };
-
   if (isNaN(p1Position))
     return { error: true, message: "Player 1 position should be number" };
 
@@ -47,4 +50,4 @@ function validate(p1Age, p1Position, p2Age, p2Position) {
   return { error: false, message: "" };
 }
 
-module.exports = validate;
+module.exports = { validateAge, validatePosition };

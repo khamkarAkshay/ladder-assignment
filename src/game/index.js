@@ -1,10 +1,15 @@
 const { createLadder, takeStep } = require("../helper/ladder.helper");
-const validate = require("../helper/validate.helper");
+const { validateAge, validatePosition } = require("../helper/validate.helper");
 
 function game(p1Age, p1Position, p2Age, p2Position) {
-  const isValid = validate(p1Age, p1Position, p2Age, p2Position);
-  if (isValid.error) {
-    return isValid.message;
+  const isAgeValid = validateAge(p1Age, p2Age);
+  const isPositionValid = validatePosition(p1Position, p2Position);
+  if (isAgeValid.error) {
+    return isAgeValid.message;
+  }
+
+  if (isPositionValid.error) {
+    return isPositionValid.message;
   }
 
   const ladder = createLadder(p1Age, p1Position, p2Age, p2Position);
