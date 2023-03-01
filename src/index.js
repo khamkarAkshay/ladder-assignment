@@ -47,9 +47,7 @@ rl.on("close", () => {
   if (inputs.length > 0) {
     inputs.forEach((input, index) => {
       const startGame = game(...input.split(" "));
-      if (startGame === 0) console.log(`Input ${index+1}: ` + "Player 2 is winner");
-      else if (startGame === 1) console.log(`Input ${index + 1}: ` + "Player 1 is winner");
-      else console.log(`Input ${index + 1}: ` + startGame);
+      console.log(startGame);
     });
   }
   process.exit();
