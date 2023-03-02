@@ -1,3 +1,11 @@
+/**
+ * @param {number} p1Age - player 1 age 
+ * @param {number} p1Position - player 1 position
+ * @param {number} p2Age - player 2 age 
+ * @param {number} p2Position - player 2 page 
+ * @returns array with default players position
+ */
+
 function createLadder(p1Age, p1Position, p2Age, p2Position) {
   if (p1Age > p2Age) {
     const arr = [].fill("", 0, p1Age);
@@ -11,10 +19,22 @@ function createLadder(p1Age, p1Position, p2Age, p2Position) {
   return [...arr];
 }
 
+/**
+ * @param {number} currentPlayerPosition - position of current player
+ * @param {number} step - step to move forward or backward
+ * @returns new position of current player
+ */
+
 function getCurrentStep(currentPlayerPosition, step) {
   if (step < 0) return currentPlayerPosition + (step < -2 ? 2 : 1);
   return currentPlayerPosition - (step > 2 ? 2 : 1);
 }
+
+/**
+ * @param {array} ladder - array with current players position
+ * @param {string} player - player taking step on ladder 'p1' for player 1 and 'p2' for player 2 
+ * @returns {winner: string, done: boolean} current status of game and winner of game. 
+ */
 
 function takeStep(ladder, player) {
   const updatedLadder = [...ladder];

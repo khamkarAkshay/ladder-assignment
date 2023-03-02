@@ -1,3 +1,8 @@
+/**
+ * @param {number} p1Age - validate player 1 age
+ * @param {number} p2Age - validate player 2 age
+ * @returns {error: boolean, message: string} returns error and valid message after validating player 1 and player 2 age
+ */
 function validateAge(p1Age, p2Age) {
   if (p1Age === null || p1Age === undefined)
     return { error: true, message: "Player 1 age cannot be empty" };
@@ -23,6 +28,11 @@ function validateAge(p1Age, p2Age) {
   return { error: false, message: "" };
 }
 
+/**
+ * @param {number} p1Position - player 1 position
+ * @param {number} p2Position - player 2 position
+ * @returns {error: boolean, message: string} returns error and valid message after validating player 1 and player 2 position
+ */
 function validatePosition(p1Position, p2Position) {
   if (p1Position === null || p1Position === undefined)
     return { error: true, message: "Player 1 position cannot be empty" };

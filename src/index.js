@@ -4,6 +4,11 @@ let lineNumber = 0;
 let numOfTest;
 let inputs = [];
 
+/**
+ * Creating interface to read the inputs for Number of test cases and test records
+ * Using game() to calculate the winner
+ */
+
 var rl = readline.createInterface({
   input: process.stdin,
 });
@@ -45,6 +50,7 @@ function readLine(line) {
 
 rl.on("close", () => {
   if (inputs.length > 0) {
+    console.log("Result:");
     inputs.forEach((input, index) => {
       const startGame = game(...input.split(" "));
       console.log(startGame);
